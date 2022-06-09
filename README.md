@@ -51,6 +51,19 @@ DB_DATABASE=products
 DB_USERNAME=root <-- your username
 DB_PASSWORD=     <-- your password
 ```
+from line no 31 to 39
+Enable Two factore authentication on your gmail account generate `app password`
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=<Your-Email-Address> <-- Your-Email-Address
+MAIL_PASSWORD=<Your-Password>      <-- Your-app-password
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME=
+# MAIL_FROM_NAME="${APP_NAME}"   
+```
 
 ## Database setup
 
@@ -104,4 +117,3 @@ Status
 User Authorization
 Read Product | Add Product | Edit Product | Multiple Delete Product 
 ```
-
