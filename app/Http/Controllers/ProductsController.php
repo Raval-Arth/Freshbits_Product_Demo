@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -16,7 +17,7 @@ class ProductsController extends Controller
     {
         try {
             // Get all products
-            $products = Products::all();
+            $products = Products::where('user_id', Auth::user()->id)->paginate(5);
             return view('home', ['products' => $products]);
         } catch (\Exception $e) {
             //return error message with error line
@@ -46,7 +47,7 @@ class ProductsController extends Controller
             // generate random string for upc
             $pool = '0123456789';
             $upc = substr(str_shuffle(str_repeat($pool, 5)), 0, 9);
-            
+
             // image upload from client
             $image = $request->file('image');
             $imageName = $upc . '.' . $image->getClientOriginalExtension();
@@ -54,6 +55,7 @@ class ProductsController extends Controller
             // create new product
             $product = new Products();
             $product->name = $request->product_name;
+            $product->user_id = Auth::user()->id;
             $product->price = $request->product_price;
             $product->upc = $upc;
             // $product->image = $imageName;

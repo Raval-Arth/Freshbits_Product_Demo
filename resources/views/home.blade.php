@@ -89,7 +89,12 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="mt-10">
+                            {{ $products->links() }}
+                        </div>
                     </div>
+
                 </div>
             </div>
         </main>
@@ -319,6 +324,7 @@
             formdata.append('product_price', $('.edit_product_price').val());
             formdata.append('product_status', $('.edit_product_status').val());
             formdata.append('image', file);
+            formdata.append('user_id', {{ Auth::user()->id }});
             formdata.append('_token', '{{ csrf_token() }}');
             $.ajax({
                 type: 'POST',
@@ -354,7 +360,6 @@
                             console.log(result);
                             $('.edit-product-form').addClass('hidden');
                             $(".main-section").removeClass("hidden");
-
                             $(this).parent().parent().remove();
                             // console.log($(this).parent().parent().children('.product_upc_code').html());
                             location.reload();

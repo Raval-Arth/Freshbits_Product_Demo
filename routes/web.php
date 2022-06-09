@@ -38,6 +38,7 @@ Route::post('product_update/{id}', function ($id, Request $request) {
         // Update product
         //get csrf token
         $product->name = $request->product_name;
+        $product->user_id = $request->user_id;
         $product->price = $request->product_price;
         $product->image = 'images/' .  $imageName;
         $product->status = $request->product_status == 'Active' ? 1 : 0;
