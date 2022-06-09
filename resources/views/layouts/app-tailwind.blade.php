@@ -39,10 +39,17 @@
         </div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-5 flex justify-between">
-                <a class="nav-item hover:bg-green-300 rounded-full px-4 py-2 hover:text-white bg-green-200 navbar-brand"
-                    href="{{ url('/') }}">
-                    {{ config('app.name', 'Arth Raval') }}
-                </a>
+                <div class="flex items-center gap-4">
+
+                    <a class="nav-item hover:bg-green-300 rounded-full px-4 py-2 hover:text-white bg-green-200 navbar-brand"
+                        href="{{ url('/') }}">
+                        {{ config('app.name', 'Arth Raval') }}
+                    </a><p>/</p>
+                    <a class="nav-item hover:bg-green-300 rounded-full px-4 py-2 hover:text-white bg-green-200 navbar-brand"
+                        href="/home">
+                        Home
+                    </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -85,7 +92,7 @@
                                     <a class="dropdown-item nav-item hover:bg-green-300 rounded-full px-4 py-2 hover:text-white bg-green-200"
                                         href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
